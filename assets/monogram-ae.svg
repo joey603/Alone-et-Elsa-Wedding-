@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 100" fill="none" aria-hidden="true">
+  <title>Monogramme AE</title>
+  <defs>
+    <linearGradient
+      id="ae-fill"
+      x1="130"
+      y1="0"
+      x2="130"
+      y2="100"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset="0%" stop-color="#a856a0" />
+      <stop offset="100%" stop-color="#6d3a68" />
+    </linearGradient>
+  </defs>
+  <text
+    x="50%"
+    y="54%"
+    dominant-baseline="central"
+    text-anchor="middle"
+    font-family="Cormorant Garamond, Georgia, serif"
+    font-size="92"
+    font-weight="300"
+    font-style="italic"
+    letter-spacing="-0.06em"
+    fill="url(#ae-fill)"
+    stroke="#d4af37"
+    stroke-width="1.35"
+    paint-order="stroke fill"
+    vector-effect="non-scaling-stroke"
+  >
+    AE
+  </text>
+</svg>

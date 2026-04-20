@@ -3,16 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yoni & Noy | Faire-part</title>
+    <title>Alon & Elsa | Faire-part</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="styles.css?v=alone-elsa-19" />
+    <link rel="preload" as="image" href="assets/watercolor-blue-bg.png" />
+    <link rel="preload" as="image" href="assets/watercolor-gold-ink-bg.png" />
   </head>
-  <body class="intro-active">
+  <body class="intro-active" data-invite-couple="alone-elsa">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="monogram-ae-sprite"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <defs>
+        <linearGradient
+          id="monogram-ae-fill"
+          x1="130"
+          y1="0"
+          x2="130"
+          y2="100"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0%" stop-color="var(--accent)" />
+          <stop offset="100%" stop-color="var(--accent-deep)" />
+        </linearGradient>
+      </defs>
+    </svg>
+
     <section class="intro-overlay" id="intro-overlay" aria-label="Accueil du faire-part">
       <div class="invitation-card cover-card intro-card">
         <div class="intro-lang-switch" role="group" aria-label="Choix de langue">
@@ -20,8 +43,35 @@
           <button type="button" class="lang-button" data-lang="he">HE</button>
         </div>
 
-        <div class="intro-monogram monogram" aria-label="Monogramme Noy et Yoni">
-          <img class="monogram-image" src="./assets/monogram-ny.png" alt="" aria-hidden="true" />
+        <div class="intro-monogram monogram" aria-label="Monogramme A et E">
+          <svg
+            class="monogram-image monogram-type-svg"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 260 100"
+            preserveAspectRatio="xMidYMid meet"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <text
+              class="monogram-type-text"
+              x="50%"
+              y="54%"
+              dominant-baseline="central"
+              text-anchor="middle"
+              font-family="Cormorant Garamond, Georgia, serif"
+              font-size="92"
+              font-weight="300"
+              font-style="italic"
+              letter-spacing="-0.06em"
+              fill="url(#monogram-ae-fill)"
+              stroke="var(--monogram-outline)"
+              stroke-width="1.35"
+              paint-order="stroke fill"
+              vector-effect="non-scaling-stroke"
+            >
+              AE
+            </text>
+          </svg>
         </div>
 
         <div class="intro-countdown-wrapper">
@@ -58,29 +108,79 @@
       <section class="invitation-card cover-card" aria-label="Couverture du faire-part">
         <div
           class="cover-monogram monogram"
-          aria-label="Monogramme Noy et Yoni"
+          aria-label="Monogramme A et E"
           data-reveal="up"
         >
-          <img class="monogram-image" src="./assets/monogram-ny.png" alt="" aria-hidden="true" />
+          <svg
+            class="monogram-image monogram-type-svg"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 260 100"
+            preserveAspectRatio="xMidYMid meet"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <text
+              class="monogram-type-text"
+              x="50%"
+              y="54%"
+              dominant-baseline="central"
+              text-anchor="middle"
+              font-family="Cormorant Garamond, Georgia, serif"
+              font-size="92"
+              font-weight="300"
+              font-style="italic"
+              letter-spacing="-0.06em"
+              fill="url(#monogram-ae-fill)"
+              stroke="var(--monogram-outline)"
+              stroke-width="1.35"
+              paint-order="stroke fill"
+              vector-effect="non-scaling-stroke"
+            >
+              AE
+            </text>
+          </svg>
         </div>
       </section>
 
       <section class="invitation-card details-card">
         <div class="family-grid">
-          <div class="family-column" data-family-column="noy" data-reveal="left">
-            <p>Mr &amp; Mme grand parent maternel Noy</p>
-            <p>Mr &amp; Mme grand parent paternel Noy</p>
-            <p>Mr &amp; Mme parent Noy</p>
+          <div class="family-column" data-family-column="alone" data-reveal="left">
+            <p>Famille d'Alon</p>
           </div>
 
-          <div class="monogram" aria-label="Monogramme Noy et Yoni" data-reveal="up">
-            <img class="monogram-image" src="./assets/monogram-ny.png" alt="" aria-hidden="true" />
+          <div class="monogram" aria-label="Monogramme A et E" data-reveal="up">
+            <svg
+              class="monogram-image monogram-type-svg"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 260 100"
+              preserveAspectRatio="xMidYMid meet"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <text
+                class="monogram-type-text"
+                x="50%"
+                y="54%"
+                dominant-baseline="central"
+                text-anchor="middle"
+                font-family="Cormorant Garamond, Georgia, serif"
+                font-size="92"
+                font-weight="300"
+                font-style="italic"
+                letter-spacing="-0.06em"
+                fill="url(#monogram-ae-fill)"
+                stroke="var(--monogram-outline)"
+                stroke-width="1.35"
+                paint-order="stroke fill"
+                vector-effect="non-scaling-stroke"
+              >
+                AE
+              </text>
+            </svg>
           </div>
 
-          <div class="family-column" data-family-column="yoni" data-reveal="right">
-            <p>Mr &amp; Mme grand parent maternel Yoni</p>
-            <p>Mr &amp; Mme grand parent paternel Yoni</p>
-            <p>Mr &amp; Mme parent Yoni</p>
+          <div class="family-column" data-family-column="elsa" data-reveal="right">
+            <p>Famille d'Elsa</p>
           </div>
         </div>
 
@@ -90,15 +190,15 @@
 
         <div class="names-row" data-reveal="up">
           <div class="person" data-reveal="left">
-            <h1 class="first-name" id="first-name-noy">Noy</h1>
-            <p class="hebrew-name" id="secondary-name-noy" lang="he" dir="rtl"></p>
+            <h1 class="first-name" id="first-name-alone">Alon</h1>
+            <p class="hebrew-name" id="secondary-name-alone" lang="he" dir="rtl"></p>
           </div>
 
           <div class="ampersand" id="names-separator">&amp;</div>
 
           <div class="person" data-reveal="right">
-            <h1 class="first-name" id="first-name-yoni">Yoni</h1>
-            <p class="hebrew-name" id="secondary-name-yoni" lang="he" dir="rtl"></p>
+            <h1 class="first-name" id="first-name-elsa">Elsa</h1>
+            <p class="hebrew-name" id="secondary-name-elsa" lang="he" dir="rtl"></p>
           </div>
         </div>
 
@@ -109,7 +209,7 @@
           lang="he"
           dir="rtl"
         >
-          יוני ונוי
+          אלון ואלזה
         </p>
 
         <p class="invitation-line" id="invitation-line" data-reveal="left">
@@ -118,17 +218,7 @@
 
         <div class="date-block" data-reveal="up">
           <p class="date" id="event-date">Lundi 07 Septembre 2026</p>
-          <p class="venue venue-emphasis" id="venue-name">Hôtel Logos</p>
-          <p class="venue" id="venue-location">Yad HaShmona, Israël</p>
-          <a
-            class="waze-button"
-            id="waze-link"
-            href="https://www.waze.com/ul?q=H%C3%B4tel%20Logos%2C%20Yad%20HaShmona%2C%20Isra%C3%ABl&navigate=yes"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Ouvrir dans Waze
-          </a>
+          <p class="venue venue-emphasis" id="venue-name">Adresse mariage</p>
         </div>
 
         <div class="schedule" id="schedule-text" data-reveal="right">
@@ -143,7 +233,7 @@
           <p class="rsvp-kicker" id="rsvp-kicker">Confirmation de presence</p>
           <h2 class="rsvp-title" id="rsvp-title">RSVP</h2>
           <p class="rsvp-subtitle" id="rsvp-subtitle">
-            Merci de nous confirmer votre presence et de nous laisser un petit mot.
+            Merci de confirmer votre presence pour le mariage d'Alon et d'Elsa et de nous laisser un petit mot.
           </p>
         </div>
 
@@ -198,7 +288,7 @@
           </label>
 
           <label class="field-group" data-reveal="up">
-            <span id="label-message">Un mot pour les maries</span>
+            <span id="label-message">Un mot pour Alon et Elsa</span>
             <textarea
               id="input-message"
               name="message"
@@ -222,8 +312,12 @@
       const countdownTitle = document.getElementById("intro-countdown-title");
       const countdownLabels = document.querySelectorAll("[data-countdown-label]");
       const familyColumns = {
-        noy: document.querySelector('[data-family-column="noy"]'),
-        yoni: document.querySelector('[data-family-column="yoni"]'),
+        alone:
+          document.querySelector('[data-family-column="alone"]') ||
+          document.querySelector('[data-family-column="noy"]'),
+        elsa:
+          document.querySelector('[data-family-column="elsa"]') ||
+          document.querySelector('[data-family-column="yoni"]'),
       };
       const countdownValues = {
         days: document.querySelector('[data-countdown="days"]'),
@@ -234,17 +328,19 @@
       const rsvpForm = document.getElementById("rsvp-form");
       const feedback = document.getElementById("form-feedback");
       const announcementText = document.getElementById("announcement-text");
-      const firstNameNoy = document.getElementById("first-name-noy");
-      const firstNameYoni = document.getElementById("first-name-yoni");
-      const secondaryNameNoy = document.getElementById("secondary-name-noy");
-      const secondaryNameYoni = document.getElementById("secondary-name-yoni");
+      const firstNameAlone =
+        document.getElementById("first-name-alone") || document.getElementById("first-name-noy");
+      const firstNameElsa =
+        document.getElementById("first-name-elsa") || document.getElementById("first-name-yoni");
+      const secondaryNameAlone =
+        document.getElementById("secondary-name-alone") || document.getElementById("secondary-name-noy");
+      const secondaryNameElsa =
+        document.getElementById("secondary-name-elsa") || document.getElementById("secondary-name-yoni");
       const namesSeparator = document.getElementById("names-separator");
       const invitationLine = document.getElementById("invitation-line");
       const hebrewCoupleNames = document.getElementById("hebrew-couple-names");
       const eventDate = document.getElementById("event-date");
       const venueName = document.getElementById("venue-name");
-      const venueLocation = document.getElementById("venue-location");
-      const wazeLink = document.getElementById("waze-link");
       const scheduleText = document.getElementById("schedule-text");
       const rsvpKicker = document.getElementById("rsvp-kicker");
       const rsvpTitle = document.getElementById("rsvp-title");
@@ -279,7 +375,7 @@
 
       const introTranslations = {
         fr: {
-          title: "Compte a rebours jusqu'au mariage",
+          title: "Compte a rebours",
           open: "Ouvrir l'invitation",
           labels: {
             days: "Jours",
@@ -289,7 +385,7 @@
           },
         },
         he: {
-          title: "הספירה לאחור ",
+          title: "הספירה לאחור",
           open: "להמשך",
           labels: {
             days: "ימים",
@@ -303,25 +399,21 @@
       const pageTranslations = {
         fr: {
           families: {
-            noy: ["Yoseph et Tsipora Avidan"],
-            yoni: ["Yohan et Veronique Assouline"],
+            alone: ["Famille d'Alon"],
+            elsa: ["Famille d'Elsa"],
           },
-          announcement: ["Ont la joie de vous faire part du mariage"],
+          announcement: ["Ont la joie de vous faire part du mariage d'"],
           names: {
-            noy: "Noy",
-            yoni: "Yoni",
-            secondaryNoy: "",
-            secondaryYoni: "",
+            alone: "Alon",
+            elsa: "Elsa",
+            secondaryAlone: "",
+            secondaryElsa: "",
             separator: "&",
           },
           coupleNamesLine: "",
           invitationLine: "Et vous prient de bien vouloir les honorer de votre presence le",
           eventDate: "Lundi 07 Septembre 2026",
-          venueName: "Hôtel Logos",
-          venueLocation: "Yad HaShmona, Israël",
-          wazeLabel: "Ouvrir dans Waze",
-          wazeHref:
-            "https://www.waze.com/ul?q=H%C3%B4tel%20Logos%2C%20Yad%20HaShmona%2C%20Isra%C3%ABl&navigate=yes",
+          venueName: "Adresse mariage",
           schedule: [
             "Le cocktail debutera a 18h00",
             "La ceremonie religieuse se tiendra a 20h30",
@@ -330,7 +422,8 @@
           rsvp: {
             kicker: "Confirmation de presence",
             title: "RSVP",
-            subtitle: "Merci de nous confirmer votre presence et de nous laisser un petit mot.",
+            subtitle:
+              "Merci de confirmer votre presence pour le mariage d'Alon et d'Elsa et de nous laisser un petit mot.",
             lastName: "Nom",
             lastNamePlaceholder: "Votre nom",
             firstName: "Prenom",
@@ -340,7 +433,7 @@
             no: "Non",
             guests: "Nombre de personnes",
             guestsPlaceholder: "1",
-            message: "Un mot pour les maries",
+            message: "Un mot pour Alon et Elsa",
             messagePlaceholder: "Ecrivez votre message ici...",
             submit: "Envoyer",
             feedback: "Merci, votre reponse a bien ete enregistree.",
@@ -351,25 +444,21 @@
         },
         he: {
           families: {
-            noy: ["יוסף וציפורה", "אבידן"],
-            yoni: ["יוהן וורוניק", "אסולין"],
+            alone: ["המשפחה של", "אלון"],
+            elsa: ["המשפחה של", "אלזה"],
           },
-          announcement: ["שמחים להזמינכם לחתונה של"],
+          announcement: ["שמחים להזמינכם לחתונה"],
           names: {
-            noy: "נוי",
-            yoni: "יוני",
-            secondaryNoy: "",
-            secondaryYoni: "",
+            alone: "אלון",
+            elsa: "אלזה",
+            secondaryAlone: "",
+            secondaryElsa: "",
             separator: "ו",
           },
-          coupleNamesLine: "יוני ונוי",
+          coupleNamesLine: "אלון ואלזה",
           invitationLine: "שתתקיים ביום שני",
           eventDate: "7 בספטמבר 2026",
-          venueName: "במלון לוגוס, יד השמונה",
-          venueLocation: "",
-          wazeLabel: "פתיחה ב-Waze",
-          wazeHref:
-            "https://www.waze.com/ul?q=%D7%9E%D7%9C%D7%95%D7%9F%20%D7%9C%D7%95%D7%92%D7%95%D7%A1%2C%20%D7%99%D7%93%20%D7%94%D7%A9%D7%9E%D7%95%D7%A0%D7%94&navigate=yes",
+          venueName: "כתובת החתונה",
           schedule: ["קבלת הפנים תחל בשעה 18:00", "טקס החופה יתקיים בשעה 20:30"],
           rsvp: {
             kicker: "אישור הגעה",
@@ -464,24 +553,26 @@
 
         const pageCopy = pageTranslations[lang];
 
-        if (lang === "he") {
-          const heFamily = (pair) =>
-            `<p class="family-given">${pair[0]}</p><p class="family-surname">${pair[1]}</p>`;
-          familyColumns.noy.innerHTML = heFamily(pageCopy.families.noy);
-          familyColumns.yoni.innerHTML = heFamily(pageCopy.families.yoni);
-        } else {
-          familyColumns.noy.innerHTML = pageCopy.families.noy.map((line) => `<p>${line}</p>`).join("");
-          familyColumns.yoni.innerHTML = pageCopy.families.yoni.map((line) => `<p>${line}</p>`).join("");
+        if (familyColumns.alone && familyColumns.elsa) {
+          if (lang === "he") {
+            const heFamily = (pair) =>
+              `<p class="family-given">${pair[0]}</p><p class="family-surname">${pair[1]}</p>`;
+            familyColumns.alone.innerHTML = heFamily(pageCopy.families.alone);
+            familyColumns.elsa.innerHTML = heFamily(pageCopy.families.elsa);
+          } else {
+            familyColumns.alone.innerHTML = pageCopy.families.alone.map((line) => `<p>${line}</p>`).join("");
+            familyColumns.elsa.innerHTML = pageCopy.families.elsa.map((line) => `<p>${line}</p>`).join("");
+          }
         }
         announcementText.innerHTML = pageCopy.announcement.map((line) => `<p>${line}</p>`).join("");
-        firstNameNoy.textContent = pageCopy.names.noy;
-        firstNameYoni.textContent = pageCopy.names.yoni;
-        secondaryNameNoy.textContent = pageCopy.names.secondaryNoy;
-        secondaryNameYoni.textContent = pageCopy.names.secondaryYoni;
-        secondaryNameNoy.lang = lang === "he" ? "fr" : "he";
-        secondaryNameYoni.lang = lang === "he" ? "fr" : "he";
-        secondaryNameNoy.dir = lang === "he" ? "ltr" : "rtl";
-        secondaryNameYoni.dir = lang === "he" ? "ltr" : "rtl";
+        if (firstNameAlone) firstNameAlone.textContent = pageCopy.names.alone;
+        if (firstNameElsa) firstNameElsa.textContent = pageCopy.names.elsa;
+        if (secondaryNameAlone) secondaryNameAlone.textContent = pageCopy.names.secondaryAlone;
+        if (secondaryNameElsa) secondaryNameElsa.textContent = pageCopy.names.secondaryElsa;
+        if (secondaryNameAlone) secondaryNameAlone.lang = lang === "he" ? "fr" : "he";
+        if (secondaryNameElsa) secondaryNameElsa.lang = lang === "he" ? "fr" : "he";
+        if (secondaryNameAlone) secondaryNameAlone.dir = lang === "he" ? "ltr" : "rtl";
+        if (secondaryNameElsa) secondaryNameElsa.dir = lang === "he" ? "ltr" : "rtl";
         namesSeparator.textContent = pageCopy.names.separator;
         if (hebrewCoupleNames) {
           hebrewCoupleNames.textContent = pageCopy.coupleNamesLine || "";
@@ -489,9 +580,6 @@
         invitationLine.textContent = pageCopy.invitationLine;
         eventDate.textContent = pageCopy.eventDate;
         venueName.textContent = pageCopy.venueName;
-        venueLocation.textContent = pageCopy.venueLocation;
-        wazeLink.textContent = pageCopy.wazeLabel;
-        wazeLink.href = pageCopy.wazeHref;
         scheduleText.innerHTML = pageCopy.schedule.map((line) => `<p>${line}</p>`).join("");
         rsvpKicker.textContent = pageCopy.rsvp.kicker;
         rsvpTitle.textContent = pageCopy.rsvp.title;
