@@ -12,7 +12,11 @@
   /* Même dégradé que « Ouvrir l'invitation » et les autres boutons violets */
   --cta-gradient: linear-gradient(180deg, var(--accent) 0%, var(--accent-deep) 100%);
   --name-gradient: var(--cta-gradient);
-  --monogram-outline: #d4af37;
+  --monogram-orange: #e87828;
+  --monogram-orange-light: #f6a347;
+  --monogram-orange-dark: #cf6218;
+  --monogram-black: #181818;
+  --monogram-black-light: #444444;
 }
 
 * {
@@ -347,8 +351,9 @@ body.is-hebrew .intro-overlay .countdown-value {
 }
 
 .intro-monogram {
-  width: clamp(260px, 72vw, 420px);
-  height: clamp(72px, 11vw, 118px);
+  width: clamp(152px, 42vw, 260px);
+  aspect-ratio: 690 / 721;
+  height: auto;
   transform: none;
 }
 
@@ -453,8 +458,9 @@ body.is-hebrew .intro-overlay .countdown-value {
 }
 
 .cover-monogram.monogram {
-  width: min(clamp(300px, 78vw, 520px), 92vw);
-  height: min(clamp(96px, 14vw, 150px), 22vh);
+  width: min(clamp(180px, 48vw, 320px), 78vw);
+  aspect-ratio: 690 / 721;
+  height: auto;
   margin: 0 auto;
   align-self: center;
   transform: none;
@@ -519,8 +525,9 @@ body.is-hebrew .intro-overlay .countdown-value {
 
 .monogram {
   position: relative;
-  width: clamp(108px, 22vw, 168px);
-  height: clamp(40px, 7vw, 56px);
+  width: clamp(72px, 16vw, 112px);
+  aspect-ratio: 690 / 721;
+  height: auto;
   justify-self: center;
   transform: translateX(0);
 }
@@ -542,13 +549,22 @@ body.is-hebrew .intro-overlay .countdown-value {
   backface-visibility: hidden;
 }
 
-svg.monogram-type-svg {
+svg.monogram-aa-svg {
   filter: none;
 }
 
 img.monogram-image {
   object-fit: contain;
   object-position: center;
+}
+
+img.monogram-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: none;
+  image-rendering: auto;
 }
 
 .monogram-letter {
@@ -1169,8 +1185,7 @@ body.is-hebrew .he-subtitle-split__line + .he-subtitle-split__line {
   }
 
   .intro-monogram {
-    width: min(300px, 88vw);
-    height: 92px;
+    width: min(200px, 58vw);
   }
 
   .intro-countdown-wrapper {
@@ -1241,13 +1256,11 @@ body.is-hebrew .he-subtitle-split__line + .he-subtitle-split__line {
 
   .monogram {
     margin: 0 auto;
-    width: min(120px, 28vw);
-    height: 44px;
+    width: min(88px, 20vw);
   }
 
   .cover-monogram.monogram {
-    width: min(280px, 88vw);
-    height: min(88px, 16vh);
+    width: min(220px, 68vw);
   }
 
   .ampersand {
@@ -1384,8 +1397,7 @@ body.is-hebrew .he-subtitle-split__line + .he-subtitle-split__line {
   }
 
   .intro-monogram {
-    width: min(272px, 90vw);
-    height: 84px;
+    width: min(176px, 54vw);
   }
 
   .intro-countdown-title {
@@ -1468,7 +1480,6 @@ body.is-hebrew .he-subtitle-split__line + .he-subtitle-split__line {
 
 @media (max-width: 370px) {
   .cover-monogram.monogram {
-    width: min(240px, 92vw);
-    height: min(76px, 14vh);
+    width: min(188px, 72vw);
   }
 }
