@@ -17,6 +17,8 @@
   --monogram-orange-dark: #cf6218;
   --monogram-black: #181818;
   --monogram-black-light: #444444;
+  --page-bg-color: #f7f2ed;
+  --page-bg-image: url("assets/watercolor-lavender-gold-bg.png");
 }
 
 * {
@@ -24,7 +26,7 @@
 }
 
 html {
-  background: #ffffff;
+  background: var(--page-bg-color);
 }
 
 body {
@@ -32,7 +34,7 @@ body {
   min-height: 100vh;
   font-family: "Cinzel", serif;
   color: var(--text);
-  background: #ffffff;
+  background: var(--page-bg-color);
   overflow-x: hidden;
 }
 
@@ -240,15 +242,14 @@ body.is-hebrew .date {
   padding: clamp(24px, 4vw, 40px);
 }
 
-/* Plein écran après « Ouvrir l’invitation » : logo seul, fond aquarelle bleue */
-main > .invitation-card.cover-card {
-  background-color: #eef4f8;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.12)),
-    url("assets/watercolor-blue-bg.png");
-  background-position: center, center;
-  background-size: cover, cover;
-  background-repeat: no-repeat, no-repeat;
+.intro-overlay,
+main > .invitation-card.cover-card,
+.invitation-card.rsvp-card {
+  background-color: var(--page-bg-color);
+  background-image: var(--page-bg-image);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .intro-overlay {
@@ -259,13 +260,6 @@ main > .invitation-card.cover-card {
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background-color: #eef4f8;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.12), rgba(250, 244, 252, 0.38)),
-    url("assets/watercolor-blue-bg.png");
-  background-position: center, center;
-  background-size: cover, cover;
-  background-repeat: no-repeat, no-repeat;
   font-family: "Cinzel", serif;
   transition:
     transform 4900ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -303,13 +297,7 @@ body.is-hebrew .intro-overlay .countdown-value {
   justify-content: center;
   gap: clamp(28px, 4vw, 40px);
   padding: clamp(28px, 4.5vw, 54px) clamp(22px, 6vw, 82px);
-  background-color: #eef4f8;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.12)),
-    url("assets/watercolor-blue-bg.png");
-  background-position: center, center;
-  background-size: cover, cover;
-  background-repeat: no-repeat, no-repeat;
+  background: transparent;
 }
 
 .intro-lang-switch {
@@ -428,33 +416,17 @@ body.is-hebrew .intro-overlay .countdown-value {
 
 .invitation-card.details-card {
   justify-content: space-between;
-  background-color: #e8eef3;
+  background-color: var(--page-bg-color);
   background-image: none;
 }
 
-/* Fond encre-or : léger zoom (moins « dézoomé ») tout en restant plein cadre grâce à overflow:hidden */
 .invitation-card.details-card::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background:
-    url("assets/watercolor-gold-ink-bg.png") center / cover no-repeat;
-  transform: scale(1.08);
-  transform-origin: center center;
-}
-
-.invitation-card.details-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    rgba(255, 255, 255, 0.14),
-    rgba(255, 255, 255, 0.06)
-  );
+  background: var(--page-bg-image) center / cover no-repeat;
 }
 
 .cover-monogram.monogram {
@@ -729,13 +701,6 @@ img.monogram-logo-img {
 .invitation-card.rsvp-card {
   justify-content: center;
   gap: 34px;
-  background-color: #f4eef8;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.12)),
-    url("assets/watercolor-blue-bg.png");
-  background-position: center, center;
-  background-size: cover, cover;
-  background-repeat: no-repeat, no-repeat;
 }
 
 .rsvp-header {
@@ -1145,14 +1110,14 @@ body.is-hebrew .he-subtitle-split__line + .he-subtitle-split__line {
     padding: 30px max(20px, 5vw) 36px;
   }
 
-  /* Fonds aquarelle (dégradé + image) étirés sur toute la carte — téléphone */
+  /* Fond aquarelle étiré sur toute la carte — téléphone */
   main .invitation-card.cover-card,
   .intro-overlay,
-  .intro-card,
-  .invitation-card.rsvp-card {
-    background-size: 100% 100%, 100% 100%;
-    background-repeat: no-repeat, no-repeat;
-    background-origin: border-box, border-box;
+  .invitation-card.rsvp-card,
+  .invitation-card.details-card::before {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-origin: border-box;
   }
 
   .details-card,
@@ -1224,22 +1189,6 @@ body.is-hebrew .he-subtitle-split__line + .he-subtitle-split__line {
 
   .details-card {
     justify-content: space-between;
-  }
-
-  /* Encre-or : pas de scale + image étirée sur toute la carte */
-  .invitation-card.details-card::before {
-    transform: scale(1);
-    background-image: url("assets/watercolor-gold-ink-bg.png");
-    background-position: center center;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-origin: border-box;
-  }
-
-  .invitation-card.details-card::after {
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-origin: border-box;
   }
 
   .names-row {
@@ -1463,18 +1412,10 @@ body.is-hebrew .he-subtitle-split__line + .he-subtitle-split__line {
   /* Très petit écran : même logique d’étirement (évite tout retour au cover) */
   main .invitation-card.cover-card,
   .intro-overlay,
-  .intro-card,
-  .invitation-card.rsvp-card {
-    background-size: 100% 100%, 100% 100%;
-    background-origin: border-box, border-box;
-  }
-
+  .invitation-card.rsvp-card,
   .invitation-card.details-card::before {
     background-size: 100% 100%;
-  }
-
-  .invitation-card.details-card::after {
-    background-size: 100% 100%;
+    background-origin: border-box;
   }
 }
 
