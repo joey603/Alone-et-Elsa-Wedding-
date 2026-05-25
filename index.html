@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Frank+Ruhl+Libre:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=alone-elsa-28" />
+    <link rel="stylesheet" href="styles.css?v=alone-elsa-29" />
     <link rel="preload" as="image" href="assets/logo-aa.png" />
     <link rel="preload" as="image" href="assets/watercolor-lavender-gold-bg-v2.png" />
   </head>
@@ -254,6 +254,7 @@
         seconds: document.querySelector('[data-countdown="seconds"]'),
       };
       const rsvpForm = document.getElementById("rsvp-form");
+      const rsvpCard = document.querySelector(".rsvp-card");
       const feedback = document.getElementById("form-feedback");
       const announcementText = document.getElementById("announcement-text");
       const firstNameAlone =
@@ -600,6 +601,20 @@
         }
       }
 
+      function getMaxInvitationScrollY() {
+        if (!rsvpCard) return 0;
+        const bottom = rsvpCard.getBoundingClientRect().bottom + window.scrollY;
+        return Math.max(0, bottom - window.innerHeight);
+      }
+
+      function clampInvitationScroll() {
+        if (document.body.classList.contains("intro-active")) return;
+        const maxScrollY = getMaxInvitationScrollY();
+        if (window.scrollY > maxScrollY) {
+          window.scrollTo({ top: maxScrollY, behavior: "auto" });
+        }
+      }
+
       updateIntroLanguage("fr");
       updateCountdown();
       setInterval(updateCountdown, 1000);
@@ -620,6 +635,7 @@
             await submitRsvp();
             feedback.textContent = pageTranslations[currentLang].rsvp.feedback;
             rsvpForm.reset();
+            window.requestAnimationFrame(clampInvitationScroll);
           } catch (error) {
             feedback.textContent = pageTranslations[currentLang].rsvp.error;
           } finally {
@@ -631,6 +647,9 @@
       });
 
       window.addEventListener("scroll", markUserNavigatedAway, { passive: true });
+      window.addEventListener("scroll", clampInvitationScroll, { passive: true });
+      window.addEventListener("resize", clampInvitationScroll);
+      window.requestAnimationFrame(clampInvitationScroll);
 
       openInvitationButton.addEventListener("click", () => {
         keepIntroFocus = true;

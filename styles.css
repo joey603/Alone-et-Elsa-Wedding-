@@ -211,7 +211,7 @@ body.is-hebrew .date {
   align-items: center;
   justify-content: flex-start;
   gap: clamp(8px, 2vw, 22px);
-  padding: 0 0 clamp(32px, 8vh, 96px);
+  padding: 0;
   position: relative;
   overflow: hidden;
   scroll-snap-type: y mandatory;
@@ -699,8 +699,11 @@ img.monogram-logo-img {
 }
 
 .invitation-card.rsvp-card {
-  justify-content: center;
+  justify-content: flex-start;
   gap: 34px;
+  min-height: auto;
+  padding-bottom: clamp(40px, 7vh, 64px);
+  scroll-snap-stop: always;
 }
 
 .rsvp-header {
@@ -1096,7 +1099,7 @@ body.is-hebrew .he-subtitle-split__line + .he-subtitle-split__line {
 
 @media (max-width: 720px) {
   .page {
-    padding: 0 0 clamp(28px, 10vh, 88px);
+    padding: 0;
     gap: clamp(10px, 2.5vw, 22px);
   }
 
@@ -1264,7 +1267,7 @@ body.is-hebrew .he-subtitle-split__line + .he-subtitle-split__line {
   }
 
   .rsvp-card {
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 56px;
   }
 
@@ -1279,8 +1282,8 @@ body.is-hebrew .he-subtitle-split__line + .he-subtitle-split__line {
 
   .rsvp-form {
     width: min(100%, 400px);
-    flex: 1;
-    justify-content: space-between;
+    flex: none;
+    justify-content: flex-start;
     gap: 40px;
   }
 
@@ -1338,7 +1341,7 @@ body.is-hebrew .he-subtitle-split__line + .he-subtitle-split__line {
 @media (max-width: 556px) {
   .page {
     gap: clamp(8px, 2.5vw, 20px);
-    padding: 0 0 clamp(28px, 11vh, 80px);
+    padding: 0;
   }
 
   .invitation-card {
