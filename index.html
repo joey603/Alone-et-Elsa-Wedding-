@@ -137,7 +137,7 @@
 
         <div class="date-block" data-reveal="up">
           <p class="date" id="event-date">Dimanche 13 Decembre 2026</p>
-          <p class="venue venue-emphasis" id="venue-name" dir="rtl">מתחם בני דרום</p>
+          <p class="venue venue-emphasis" id="venue-name">Mitham Bnei Darom, salle Troya</p>
           <a
             class="waze-button"
             id="waze-link"
@@ -343,10 +343,10 @@
           coupleNamesLine: "",
           invitationLine: "Et vous prient de bien vouloir les honorer de votre presence le",
           eventDate: "Dimanche 13 Decembre 2026",
-          venueName: "מתחם בני דרום",
+          venueName: "Mitham Bnei Darom, salle Troya",
           wazeLabel: "Waze",
           wazeHref:
-            "https://www.waze.com/ul?q=%D7%9E%D7%AA%D7%97%D7%9D%20%D7%91%D7%A0%D7%99%20%D7%93%D7%A8%D7%95%D7%9D&navigate=yes",
+            "https://www.waze.com/ul?q=Mitham%20Bnei%20Darom%2C%20salle%20Troya&navigate=yes",
           schedule: [
             "Le cocktail debutera a 18h00",
             "La ceremonie religieuse se tiendra a 20h30",
@@ -391,10 +391,10 @@
           coupleNamesLine: "אלון ואלזה",
           invitationLine: "שתתקיים ביום ראשון",
           eventDate: "13 בדצמבר 2026",
-          venueName: "מתחם בני דרום",
+          venueName: "מתחם בני דרום, אולם טרויה",
           wazeLabel: "Waze",
           wazeHref:
-            "https://www.waze.com/ul?q=%D7%9E%D7%AA%D7%97%D7%9D%20%D7%91%D7%A0%D7%99%20%D7%93%D7%A8%D7%95%D7%9D&navigate=yes",
+            "https://www.waze.com/ul?q=%D7%9E%D7%AA%D7%97%D7%9D%20%D7%91%D7%A0%D7%99%20%D7%93%D7%A8%D7%95%D7%9D%2C%20%D7%90%D7%95%D7%9C%D7%9D%20%D7%98%D7%A8%D7%95%D7%99%D7%94&navigate=yes",
           schedule: ["קבלת הפנים תחל בשעה 18:00", "טקס החופה יתקיים בשעה 20:30"],
           rsvp: {
             kicker: "אישור הגעה",
@@ -516,7 +516,7 @@
         invitationLine.textContent = pageCopy.invitationLine;
         eventDate.textContent = pageCopy.eventDate;
         venueName.textContent = pageCopy.venueName;
-        venueName.setAttribute("dir", "rtl");
+        venueName.setAttribute("dir", lang === "he" ? "rtl" : "ltr");
         wazeLink.textContent = pageCopy.wazeLabel;
         wazeLink.href = pageCopy.wazeHref;
         scheduleText.innerHTML = pageCopy.schedule.map((line) => `<p>${line}</p>`).join("");
