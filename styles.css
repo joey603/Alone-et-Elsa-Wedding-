@@ -340,7 +340,7 @@ body.is-hebrew .intro-overlay .countdown-value {
 
 .intro-monogram {
   width: clamp(152px, 42vw, 260px);
-  aspect-ratio: 690 / 721;
+  aspect-ratio: 1 / 1;
   height: auto;
   transform: none;
 }
@@ -431,7 +431,7 @@ body.is-hebrew .intro-overlay .countdown-value {
 
 .cover-monogram.monogram {
   width: min(clamp(180px, 48vw, 320px), 78vw);
-  aspect-ratio: 690 / 721;
+  aspect-ratio: 1 / 1;
   height: auto;
   margin: 0 auto;
   align-self: center;
@@ -498,7 +498,7 @@ body.is-hebrew .intro-overlay .countdown-value {
 .monogram {
   position: relative;
   width: clamp(72px, 16vw, 112px);
-  aspect-ratio: 690 / 721;
+  aspect-ratio: 1 / 1;
   height: auto;
   justify-self: center;
   transform: translateX(0);
