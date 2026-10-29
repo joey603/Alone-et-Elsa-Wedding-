@@ -824,6 +824,10 @@ body.is-hebrew .schedule-time {
   font-style: normal;
 }
 
+body.is-hebrew .schedule-label {
+  font-weight: 700;
+}
+
 .invitation-card.rsvp-card {
   justify-content: flex-start;
   gap: 34px;
