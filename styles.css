@@ -63,11 +63,9 @@ body.is-hebrew .venue,
 body.is-hebrew .rsvp-subtitle,
 body.is-hebrew .field-group > span,
 body.is-hebrew .field-group > legend,
-body.is-hebrew .form-feedback {
-  font-family: "Assistant", sans-serif;
-  font-style: normal;
-}
-
+body.is-hebrew .form-feedback,
+body.is-hebrew .choice-pill span,
+body.is-hebrew .submit-button,
 body.is-hebrew .details-card .family-column {
   font-family: "Assistant", sans-serif;
   font-style: normal;
@@ -753,6 +751,19 @@ img.monogram-logo-img {
   font-size: clamp(1.25rem, 2vw, 1.8rem);
   line-height: 1.22;
   color: rgba(105, 48, 98, 0.92);
+}
+
+/* Même Didone italic que la carte d'invitation (labels + textes RSVP FR) */
+.rsvp-card .rsvp-subtitle,
+.rsvp-card .field-group > span,
+.rsvp-card .field-group > legend,
+.rsvp-card .choice-pill span,
+.rsvp-card .submit-button,
+.rsvp-card .form-feedback {
+  font-family: "Bodoni Moda", "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 body.is-hebrew .he-subtitle-split {
