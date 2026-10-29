@@ -219,8 +219,8 @@ body.is-hebrew .date {
   gap: clamp(8px, 2vw, 22px);
   padding: 0;
   position: relative;
-  overflow: hidden;
-  scroll-snap-type: y mandatory;
+  overflow: visible;
+  scroll-snap-type: y proximity;
 }
 
 .page::before,
@@ -786,6 +786,16 @@ img.monogram-logo-img {
   line-height: 1.15;
 }
 
+.details-card .script-cap,
+.rsvp-card .script-cap {
+  font-family: "Allura", cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.12em;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
 .details-card .schedule-time {
   font-size: clamp(1.45rem, 2.4vw, 2.2rem);
   font-weight: 400;
@@ -818,8 +828,10 @@ body.is-hebrew .schedule-time {
   justify-content: flex-start;
   gap: 34px;
   min-height: auto;
-  padding-bottom: clamp(40px, 7vh, 64px);
-  scroll-snap-stop: always;
+  overflow: visible;
+  padding-bottom: calc(clamp(72px, 12vh, 120px) + env(safe-area-inset-bottom, 0px));
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
 }
 
 .rsvp-header {
@@ -1476,6 +1488,7 @@ body.is-hebrew .he-subtitle-split__line + .he-subtitle-split__line {
 
   .form-actions {
     padding-top: 26px;
+    padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px));
     gap: 20px;
   }
 
@@ -1557,6 +1570,7 @@ body.is-hebrew .he-subtitle-split__line + .he-subtitle-split__line {
 
   .form-actions {
     padding-top: 20px;
+    padding-bottom: calc(36px + env(safe-area-inset-bottom, 0px));
   }
 
   /* Très petit écran : même logique d’étirement (évite tout retour au cover) */

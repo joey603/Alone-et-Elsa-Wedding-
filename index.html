@@ -2,15 +2,15 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Alon & Elsa | Faire-part</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Frank+Ruhl+Libre:wght@300;400;500&family=Great+Vibes&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Assistant:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Frank+Ruhl+Libre:wght@300;400;500&family=Great+Vibes&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=alone-elsa-42" />
+    <link rel="stylesheet" href="styles.css?v=alone-elsa-46" />
     <link rel="preload" as="image" href="assets/logo-ae-v2.png" />
     <link rel="preload" as="image" href="assets/watercolor-lavender-gold-bg-v2.png" />
   </head>
@@ -145,7 +145,7 @@
 
         <div class="schedule" id="schedule-text" data-reveal="right">
           <div class="schedule-item">
-            <p class="schedule-label">Accueil des invites</p>
+            <p class="schedule-label"><span class="script-cap">A</span>ccueil des invites</p>
             <p class="schedule-time">19h30</p>
           </div>
           <div class="schedule-divider" aria-hidden="true"></div>
@@ -229,7 +229,7 @@
           </label>
 
           <label class="field-group" data-reveal="up">
-            <span id="label-message">Un mot pour Alon et Elsa</span>
+            <span id="label-message">Un mot pour <span class="script-cap">A</span>lon et Elsa</span>
             <textarea
               id="input-message"
               name="message"
@@ -359,7 +359,7 @@
           wazeHref:
             "https://www.waze.com/ul?q=Mitham%20Bnei%20Darom%2C%20salle%20Troya&navigate=yes",
           schedule: {
-            leftLabel: "Accueil des invites",
+            leftLabel: '<span class="script-cap">A</span>ccueil des invites',
             leftTime: "19h30",
             rightLabel: "Houppa",
             rightTime: "20h30",
@@ -379,6 +379,8 @@
             guests: "Nombre de personnes",
             guestsPlaceholder: "1",
             message: "Un mot pour Alon et Elsa",
+            messageLabelHtml:
+              'Un mot pour <span class="script-cap">A</span>lon et Elsa',
             messagePlaceholder: "Ecrivez votre message ici...",
             submit: "Envoyer",
             feedback: "Merci, votre reponse a bien ete enregistree.",
@@ -629,7 +631,10 @@
       function getMaxInvitationScrollY() {
         if (!rsvpCard) return 0;
         const bottom = rsvpCard.getBoundingClientRect().bottom + window.scrollY;
-        return Math.max(0, bottom - window.innerHeight);
+        const viewportHeight = window.visualViewport?.height || window.innerHeight;
+        const chromeOffset = Math.max(0, window.innerHeight - viewportHeight);
+        const extraRoom = 120;
+        return Math.max(0, bottom - viewportHeight + chromeOffset + extraRoom);
       }
 
       function clampInvitationScroll() {
