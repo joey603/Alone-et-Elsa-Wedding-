@@ -555,16 +555,28 @@ img.monogram-logo-img {
   transform: scaleX(0.84);
 }
 
-/* Texte noir de la carte : italique Didone (style « Adresse communiquée… ») */
+/* Texte noir de la carte : calligraphie Great Vibes */
 .details-card .family-column,
 .details-card .announcement,
 .details-card .invitation-line,
 .details-card .schedule,
 .details-card .venue {
-  font-family: "Bodoni Moda", "Cormorant Garamond", Georgia, serif;
-  font-style: italic;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-family: "Great Vibes", cursive;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.details-card .family-column {
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+}
+
+.details-card .announcement,
+.details-card .invitation-line,
+.details-card .schedule,
+.details-card .venue {
+  font-size: clamp(1.55rem, 2.6vw, 2.45rem);
+  line-height: 1.2;
 }
 
 .announcement,
@@ -753,17 +765,35 @@ img.monogram-logo-img {
   color: rgba(105, 48, 98, 0.92);
 }
 
-/* Même Didone italic que la carte d'invitation (labels + textes RSVP FR) */
+/* Même calligraphie Great Vibes que la carte (labels + textes RSVP FR) */
 .rsvp-card .rsvp-subtitle,
 .rsvp-card .field-group > span,
 .rsvp-card .field-group > legend,
 .rsvp-card .choice-pill span,
 .rsvp-card .submit-button,
 .rsvp-card .form-feedback {
-  font-family: "Bodoni Moda", "Cormorant Garamond", Georgia, serif;
-  font-style: italic;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-family: "Great Vibes", cursive;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.rsvp-card .rsvp-subtitle {
+  font-size: clamp(1.55rem, 2.5vw, 2.2rem);
+  line-height: 1.28;
+}
+
+.rsvp-card .field-group > span,
+.rsvp-card .field-group > legend {
+  font-size: clamp(1.55rem, 2.4vw, 2rem);
+}
+
+.rsvp-card .choice-pill span {
+  font-size: 1.55rem;
+}
+
+.rsvp-card .submit-button {
+  font-size: 1.7rem;
 }
 
 body.is-hebrew .he-subtitle-split {
