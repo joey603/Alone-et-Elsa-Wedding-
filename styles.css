@@ -65,6 +65,12 @@ body.is-hebrew .field-group > span,
 body.is-hebrew .field-group > legend,
 body.is-hebrew .form-feedback {
   font-family: "Assistant", sans-serif;
+  font-style: normal;
+}
+
+body.is-hebrew .details-card .family-column {
+  font-family: "Assistant", sans-serif;
+  font-style: normal;
 }
 
 body.is-hebrew .rsvp-kicker {
@@ -551,15 +557,16 @@ img.monogram-logo-img {
   transform: scaleX(0.84);
 }
 
-/* Texte noir de la carte d'invitation : police arrondie élégante (hors compte à rebours / intro) */
+/* Texte noir de la carte : italique Didone (style « Adresse communiquée… ») */
 .details-card .family-column,
 .details-card .announcement,
 .details-card .invitation-line,
 .details-card .schedule,
 .details-card .venue {
-  font-family: "Comfortaa", sans-serif;
+  font-family: "Bodoni Moda", "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 .announcement,
