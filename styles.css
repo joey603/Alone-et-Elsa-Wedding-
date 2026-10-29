@@ -551,6 +551,17 @@ img.monogram-logo-img {
   transform: scaleX(0.84);
 }
 
+/* Texte noir de la carte d'invitation : police arrondie élégante (hors compte à rebours / intro) */
+.details-card .family-column,
+.details-card .announcement,
+.details-card .invitation-line,
+.details-card .schedule,
+.details-card .venue {
+  font-family: "Comfortaa", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
 .announcement,
 .invitation-line,
 .schedule,
