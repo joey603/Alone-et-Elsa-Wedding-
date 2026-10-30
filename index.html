@@ -441,17 +441,19 @@
         },
       };
 
-      function setFormSubmitting(isSubmitting) {
-        submitButton.disabled = isSubmitting;
-        inputLastName.disabled = isSubmitting;
-        inputFirstName.disabled = isSubmitting;
-        inputGuests.disabled = isSubmitting;
-        inputMessage.disabled = isSubmitting;
+      let rsvpSubmitted = false;
+
+      function setFormLocked(isLocked, { busy = false } = {}) {
+        submitButton.disabled = isLocked;
+        inputLastName.disabled = isLocked;
+        inputFirstName.disabled = isLocked;
+        inputGuests.disabled = isLocked;
+        inputMessage.disabled = isLocked;
         rsvpForm
           .querySelectorAll('input[name="houppa"]')
-          .forEach((input) => (input.disabled = isSubmitting));
+          .forEach((input) => (input.disabled = isLocked));
 
-        submitButton.textContent = isSubmitting
+        submitButton.textContent = busy
           ? pageTranslations[currentLang].rsvp.submitBusy
           : pageTranslations[currentLang].rsvp.submit;
       }
@@ -572,6 +574,9 @@
         }
         inputMessage.placeholder = pageCopy.rsvp.messagePlaceholder;
         submitButton.textContent = pageCopy.rsvp.submit;
+        if (rsvpSubmitted) {
+          setFormLocked(true);
+        }
 
         if (feedback.textContent.trim()) {
           feedback.textContent = pageCopy.rsvp.feedback;
@@ -659,18 +664,20 @@
 
       rsvpForm.addEventListener("submit", (event) => {
         event.preventDefault();
+        if (rsvpSubmitted) return;
 
         const run = async () => {
           try {
-            setFormSubmitting(true);
+            setFormLocked(true, { busy: true });
             feedback.textContent = pageTranslations[currentLang].rsvp.submitting;
             await submitRsvp();
+            rsvpSubmitted = true;
+            setFormLocked(true);
             feedback.textContent = pageTranslations[currentLang].rsvp.feedback;
             window.requestAnimationFrame(clampInvitationScroll);
           } catch (error) {
+            setFormLocked(false);
             feedback.textContent = pageTranslations[currentLang].rsvp.error;
-          } finally {
-            setFormSubmitting(false);
           }
         };
 
