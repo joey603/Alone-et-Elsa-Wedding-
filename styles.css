@@ -334,16 +334,24 @@ body.is-hebrew .intro-overlay .countdown-value {
 
 .invitation-card.cover-card.intro-card {
   width: 100%;
-  max-width: min(100%, 720px);
+  max-width: min(100%, 680px);
   min-height: 0 !important;
   height: auto;
   max-height: 100%;
-  justify-content: space-evenly;
-  gap: clamp(10px, 2vh, 24px);
-  padding: clamp(8px, 1.6vh, 24px) clamp(12px, 3vw, 28px);
+  justify-content: center;
+  gap: clamp(8px, 1.6vh, 18px);
+  padding: clamp(6px, 1.2vh, 18px) clamp(10px, 3vw, 24px);
   background: transparent;
   overflow: hidden;
   transform: none;
+  /* zoom réduit la taille layout (contrairement à transform:scale) → pas de décalage latéral */
+  zoom: 0.82;
+}
+
+@supports not (zoom: 1) {
+  .invitation-card.cover-card.intro-card {
+    zoom: normal;
+  }
 }
 
 .intro-lang-switch,
@@ -392,7 +400,7 @@ body.is-hebrew .intro-overlay .countdown-value {
 }
 
 .intro-monogram {
-  width: clamp(112px, 28vh, 220px);
+  width: clamp(88px, 18vh, 160px);
   aspect-ratio: 1 / 1;
   height: auto;
   transform: none;
@@ -400,26 +408,26 @@ body.is-hebrew .intro-overlay .countdown-value {
 }
 
 .intro-countdown-wrapper {
-  width: min(100%, 760px);
+  width: min(100%, 640px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
+  gap: clamp(8px, 1.4vh, 14px);
 }
 
 .intro-countdown-title {
   margin: 0;
-  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-size: clamp(1.15rem, 1.8vw, 1.55rem);
   line-height: 1.08;
   letter-spacing: 0.03em;
   color: #000000;
 }
 
 .countdown-grid {
-  width: min(100%, 720px);
+  width: min(100%, 640px);
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  gap: clamp(8px, 1.2vw, 12px);
 }
 
 .countdown-item {
@@ -427,23 +435,23 @@ body.is-hebrew .intro-overlay .countdown-value {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: clamp(12px, 1.8vh, 18px) 14px;
-  min-height: clamp(88px, 14vh, 128px);
-  border-radius: 28px;
+  gap: 4px;
+  padding: clamp(8px, 1.2vh, 14px) 10px;
+  min-height: clamp(64px, 10vh, 96px);
+  border-radius: 22px;
   background: rgba(255, 255, 255, 0.58);
   border: 1px solid rgba(210, 170, 200, 0.16);
   box-shadow: 0 14px 34px rgba(165, 110, 155, 0.09);
 }
 
 .countdown-value {
-  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-size: clamp(1.7rem, 3.2vw, 2.6rem);
   line-height: 0.92;
   color: rgba(105, 48, 98, 0.96);
 }
 
 .countdown-label {
-  font-size: clamp(1rem, 1.45vw, 1.28rem);
+  font-size: clamp(0.78rem, 1.2vw, 1rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #000000;
@@ -454,12 +462,19 @@ body.is-hebrew .intro-overlay .countdown-value {
   background: var(--cta-gradient);
   color: white;
   font: inherit;
-  font-size: clamp(1.22rem, 1.6vw, 1.4rem);
-  padding: 18px 44px;
+  font-size: clamp(1.05rem, 1.4vw, 1.22rem);
+  padding: clamp(12px, 1.6vh, 16px) clamp(24px, 4vw, 36px);
   border-radius: 999px;
   cursor: pointer;
   box-shadow: 0 16px 34px rgba(165, 110, 155, 0.16);
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+@media (max-height: 740px) {
+  .invitation-card.cover-card.intro-card {
+    zoom: 0.74;
+    gap: clamp(6px, 1.2vh, 12px);
+  }
 }
 
 .intro-open-button:hover {
@@ -1356,27 +1371,28 @@ body.is-hebrew .he-subtitle-split__line + .he-subtitle-split__line {
     max-width: 100%;
     min-height: 0 !important;
     max-height: 100%;
-    gap: clamp(8px, 1.4vh, 16px);
-    padding: clamp(6px, 1.2vh, 14px) max(12px, 4vw);
+    gap: clamp(6px, 1.2vh, 12px);
+    padding: clamp(4px, 1vh, 10px) max(10px, 3.5vw);
     transform: none;
+    zoom: 0.78;
   }
 
   .intro-monogram {
-    width: clamp(84px, 16vh, 140px);
+    width: clamp(72px, 14vh, 120px);
   }
 
   .countdown-item {
-    min-height: clamp(64px, 9vh, 92px);
-    padding: 10px 8px;
+    min-height: clamp(56px, 8vh, 80px);
+    padding: 8px 6px;
   }
 
   .countdown-value {
-    font-size: clamp(1.7rem, 5vw, 2.2rem);
+    font-size: clamp(1.4rem, 4.5vw, 1.9rem);
   }
 
   .intro-open-button {
-    padding: 12px 22px;
-    font-size: 1.05rem;
+    padding: 11px 20px;
+    font-size: 1rem;
   }
 
   .intro-lang-switch {
