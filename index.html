@@ -355,6 +355,8 @@
       const weddingAudio = document.getElementById("wedding-audio");
       const musicToggle = document.getElementById("music-toggle");
       let musicStarted = false;
+      let musicUserMuted = false;
+      let musicPausedByBackground = false;
 
       const introTranslations = {
         fr: {
@@ -539,7 +541,7 @@
 
       function syncMusicToggleLabel() {
         const copy = introTranslations[currentLang];
-        const muted = weddingAudio.muted || weddingAudio.paused;
+        const muted = musicUserMuted || weddingAudio.muted;
         musicToggle.setAttribute("aria-label", muted ? copy.unmute : copy.mute);
         musicToggle.setAttribute("aria-pressed", muted ? "true" : "false");
         musicToggle.classList.toggle("is-muted", muted);
@@ -548,15 +550,44 @@
       async function startWeddingMusic() {
         if (!weddingAudio) return;
         weddingAudio.volume = 0.55;
+        musicUserMuted = false;
         weddingAudio.muted = false;
         try {
           await weddingAudio.play();
           musicStarted = true;
+          musicPausedByBackground = false;
           musicToggle.classList.remove("is-hidden");
           syncMusicToggleLabel();
         } catch (error) {
           musicToggle.classList.remove("is-hidden");
           syncMusicToggleLabel();
+        }
+      }
+
+      function pauseWeddingMusicForBackground() {
+        if (!musicStarted || !weddingAudio || weddingAudio.paused) return;
+        weddingAudio.pause();
+        musicPausedByBackground = true;
+      }
+
+      async function resumeWeddingMusicFromBackground() {
+        if (!musicStarted || !musicPausedByBackground || musicUserMuted || !weddingAudio) {
+          return;
+        }
+        try {
+          await weddingAudio.play();
+          musicPausedByBackground = false;
+          syncMusicToggleLabel();
+        } catch (error) {
+          syncMusicToggleLabel();
+        }
+      }
+
+      function handleAppVisibilityChange() {
+        if (document.hidden) {
+          pauseWeddingMusicForBackground();
+        } else {
+          resumeWeddingMusicFromBackground();
         }
       }
 
@@ -759,14 +790,29 @@
       window.requestAnimationFrame(clampInvitationScroll);
 
       musicToggle.addEventListener("click", async () => {
-        if (!musicStarted || weddingAudio.paused) {
+        if (!musicStarted || (weddingAudio.paused && !musicUserMuted)) {
           await startWeddingMusic();
           return;
         }
 
-        weddingAudio.muted = !weddingAudio.muted;
+        musicUserMuted = !musicUserMuted;
+        weddingAudio.muted = musicUserMuted;
+        if (musicUserMuted) {
+          weddingAudio.pause();
+          musicPausedByBackground = false;
+        } else if (weddingAudio.paused) {
+          try {
+            await weddingAudio.play();
+          } catch (error) {
+            /* ignore autoplay refusal */
+          }
+        }
         syncMusicToggleLabel();
       });
+
+      document.addEventListener("visibilitychange", handleAppVisibilityChange);
+      window.addEventListener("pagehide", pauseWeddingMusicForBackground);
+      window.addEventListener("pageshow", resumeWeddingMusicFromBackground);
 
       openInvitationButton.addEventListener("click", () => {
         keepIntroFocus = true;
