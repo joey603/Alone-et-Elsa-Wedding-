@@ -87,8 +87,9 @@ body.is-hebrew .form-feedback,
 body.is-hebrew .choice-pill span,
 body.is-hebrew .submit-button,
 body.is-hebrew .details-card .family-column {
-  font-family: "Assistant", sans-serif;
+  font-family: "Cardo", "Frank Ruhl Libre", "Assistant", serif;
   font-style: normal;
+  font-weight: 400;
 }
 
 body.is-hebrew .rsvp-kicker {
@@ -168,11 +169,13 @@ body.is-hebrew .announcement {
   margin: clamp(14px, 2.5vw, 26px) auto;
   max-width: 760px;
   text-align: center;
-  font-family: "Assistant", sans-serif;
+  font-family: "Cardo", "Frank Ruhl Libre", "Assistant", serif;
   font-size: clamp(2.5rem, 7.2vw, 5rem);
-  font-weight: 500;
-  line-height: 1.12;
+  font-weight: 400;
+  line-height: 1.45;
   letter-spacing: 0.03em;
+  padding: 0.18em 0.25em 0.28em;
+  overflow: visible;
   background: var(--name-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -186,6 +189,12 @@ body.is-hebrew .names-date-divider {
 
 body.is-hebrew .hebrew-couple-names {
   display: block;
+  line-height: 1.5;
+  padding-block: 0.22em 0.32em;
+}
+
+body.is-hebrew .invitation-card.details-card {
+  overflow: visible;
 }
 
 body.is-hebrew .venue.venue-emphasis {
@@ -865,7 +874,7 @@ img.monogram-logo-img {
 }
 
 body.is-hebrew .schedule-label {
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .schedule-divider {
@@ -883,12 +892,15 @@ body.is-hebrew .schedule-label {
 
 body.is-hebrew .schedule-label,
 body.is-hebrew .schedule-time {
-  font-family: "Assistant", sans-serif;
+  font-family: "Cardo", "Frank Ruhl Libre", "Assistant", serif;
   font-style: normal;
+  font-weight: 400;
 }
 
-body.is-hebrew .schedule-label {
-  font-weight: 700;
+body.is-hebrew .details-card .schedule-label {
+  font-weight: 400;
+  -webkit-text-stroke: 0.35px rgba(255, 252, 248, 0.85);
+  paint-order: stroke fill;
 }
 
 .invitation-card.rsvp-card {
