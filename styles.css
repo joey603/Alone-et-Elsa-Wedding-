@@ -408,6 +408,45 @@ body.is-hebrew .intro-overlay .countdown-value {
   box-shadow: 0 14px 30px rgba(165, 110, 155, 0.14);
 }
 
+.music-toggle {
+  position: fixed;
+  z-index: 40;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(105, 48, 98, 0.28);
+  border-radius: 50%;
+  background: rgba(255, 252, 248, 0.92);
+  color: rgba(105, 48, 98, 0.92);
+  box-shadow: 0 12px 28px rgba(90, 40, 88, 0.14);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.music-toggle.is-hidden {
+  display: none;
+}
+
+.music-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 32px rgba(90, 40, 88, 0.18);
+}
+
+.music-toggle-icon {
+  width: 22px;
+  height: 22px;
+  display: none;
+}
+
+.music-toggle:not(.is-muted) .music-toggle-icon--on,
+.music-toggle.is-muted .music-toggle-icon--off {
+  display: block;
+}
+
 .intro-monogram {
   width: clamp(88px, 18vh, 160px);
   aspect-ratio: 1 / 1;

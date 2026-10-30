@@ -10,11 +10,32 @@
       href="https://fonts.googleapis.com/css2?family=Allura&family=Assistant:wght@300;400;500;600;700&family=Cardo:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Frank+Ruhl+Libre:wght@300;400;500&family=Great+Vibes&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=alone-elsa-62" />
+    <link rel="stylesheet" href="styles.css?v=alone-elsa-63" />
     <link rel="preload" as="image" href="assets/logo-ae-v2.png" />
     <link rel="preload" as="image" href="assets/watercolor-lavender-gold-bg-v2.png" />
   </head>
   <body class="intro-active" data-invite-couple="alone-elsa">
+    <audio id="wedding-audio" src="assets/wedding-song.mp3?v=from-58" loop preload="auto" playsinline></audio>
+    <button
+      type="button"
+      class="music-toggle is-hidden"
+      id="music-toggle"
+      aria-pressed="false"
+      aria-label="Couper le son"
+    >
+      <svg class="music-toggle-icon music-toggle-icon--on" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M3 10v4h3l4 4V6L6 10H3zm11.5 2a2.5 2.5 0 0 0-1.5-2.3v4.6a2.5 2.5 0 0 0 1.5-2.3zm-1.5-6.9v1.6a5 5 0 0 1 0 10.6v1.6a6.5 6.5 0 0 0 0-13.8z"
+        />
+      </svg>
+      <svg class="music-toggle-icon music-toggle-icon--off" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M16.5 12a2.5 2.5 0 0 0-1.5-2.3v2.06l1.45 1.45c.03-.07.05-.14.05-.21zm2.5 0c0 .77-.13 1.51-.36 2.19l1.2 1.2A6.45 6.45 0 0 0 20.5 12a6.5 6.5 0 0 0-5.5-6.42v1.6A5 5 0 0 1 19 12zM4.27 3 3 4.27 7.73 9H3v4h3l4 4v-5.27l4.25 4.25-.67.67 1.41 1.41 9.28-9.28L19.73 3 12 10.73 4.27 3zM12 4l-1.88 1.88L12 7.76V4z"
+        />
+      </svg>
+    </button>
     <section class="intro-overlay" id="intro-overlay" aria-label="Accueil du faire-part">
       <div class="invitation-card cover-card intro-card">
         <div class="intro-lang-switch" role="group" aria-label="Choix de langue">
@@ -315,10 +336,16 @@
       let coverMonogramRevealed = false;
       let keepIntroFocus = true;
 
+      const weddingAudio = document.getElementById("wedding-audio");
+      const musicToggle = document.getElementById("music-toggle");
+      let musicStarted = false;
+
       const introTranslations = {
         fr: {
           title: "Compte a rebours",
           open: "Ouvrir l'invitation",
+          mute: "Couper le son",
+          unmute: "Activer le son",
           labels: {
             days: "Jours",
             hours: "Heures",
@@ -329,6 +356,8 @@
         he: {
           title: "הספירה לאחור",
           open: "להמשך",
+          mute: "השתק",
+          unmute: "הפעל קול",
           labels: {
             days: "ימים",
             hours: "שעות",
@@ -492,11 +521,35 @@
         }
       }
 
+      function syncMusicToggleLabel() {
+        const copy = introTranslations[currentLang];
+        const muted = weddingAudio.muted || weddingAudio.paused;
+        musicToggle.setAttribute("aria-label", muted ? copy.unmute : copy.mute);
+        musicToggle.setAttribute("aria-pressed", muted ? "true" : "false");
+        musicToggle.classList.toggle("is-muted", muted);
+      }
+
+      async function startWeddingMusic() {
+        if (!weddingAudio) return;
+        weddingAudio.volume = 0.55;
+        weddingAudio.muted = false;
+        try {
+          await weddingAudio.play();
+          musicStarted = true;
+          musicToggle.classList.remove("is-hidden");
+          syncMusicToggleLabel();
+        } catch (error) {
+          musicToggle.classList.remove("is-hidden");
+          syncMusicToggleLabel();
+        }
+      }
+
       function updateIntroLanguage(lang) {
         currentLang = lang;
         const copy = introTranslations[lang];
         countdownTitle.textContent = copy.title;
         openInvitationButton.textContent = copy.open;
+        syncMusicToggleLabel();
         document.documentElement.lang = lang === "he" ? "he" : "fr";
         document.body.classList.toggle("is-hebrew", lang === "he");
 
@@ -689,8 +742,19 @@
       window.addEventListener("resize", clampInvitationScroll);
       window.requestAnimationFrame(clampInvitationScroll);
 
+      musicToggle.addEventListener("click", async () => {
+        if (!musicStarted || weddingAudio.paused) {
+          await startWeddingMusic();
+          return;
+        }
+
+        weddingAudio.muted = !weddingAudio.muted;
+        syncMusicToggleLabel();
+      });
+
       openInvitationButton.addEventListener("click", () => {
         keepIntroFocus = true;
+        startWeddingMusic();
         document.body.classList.remove("intro-active");
         window.requestAnimationFrame(focusFirstInvitationPage);
         introOverlay.classList.add("is-closing");
