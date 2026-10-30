@@ -27,6 +27,8 @@
 
 html {
   background: var(--page-bg-color);
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -36,9 +38,27 @@ body {
   color: var(--text);
   background: var(--page-bg-color);
   overflow-x: hidden;
+  max-width: 100%;
+}
+
+html:has(body.intro-active),
+body.intro-active {
+  overflow: hidden;
+  height: 100%;
+  max-height: 100dvh;
+  overscroll-behavior: none;
 }
 
 body.intro-active {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+}
+
+body.intro-active .page {
+  visibility: hidden;
+  pointer-events: none;
+  height: 0;
   overflow: hidden;
 }
 
@@ -212,6 +232,8 @@ body.is-hebrew .date {
 
 .page {
   min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -219,7 +241,8 @@ body.is-hebrew .date {
   gap: clamp(8px, 2vw, 22px);
   padding: 0;
   position: relative;
-  overflow: visible;
+  overflow-x: hidden;
+  overflow-y: visible;
   scroll-snap-type: y proximity;
 }
 
@@ -260,7 +283,12 @@ main > .invitation-card.cover-card,
 
 .intro-overlay {
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
   z-index: 80;
   display: flex;
   align-items: center;
@@ -270,10 +298,7 @@ main > .invitation-card.cover-card,
     max(16px, env(safe-area-inset-right, 0px))
     max(12px, env(safe-area-inset-bottom, 0px))
     max(16px, env(safe-area-inset-left, 0px));
-  min-height: 100vh;
-  min-height: 100dvh;
-  height: 100vh;
-  height: 100dvh;
+  height: 100%;
   overflow: hidden;
   box-sizing: border-box;
   font-family: "Cinzel", serif;
@@ -308,23 +333,17 @@ body.is-hebrew .intro-overlay .countdown-value {
 }
 
 .invitation-card.cover-card.intro-card {
-  width: min(100%, 980px);
+  width: 100%;
+  max-width: min(100%, 720px);
   min-height: 0 !important;
   height: auto;
-  max-height: calc(100dvh - 20px);
-  max-height: calc(100vh - 20px);
+  max-height: 100%;
   justify-content: space-evenly;
-  gap: clamp(10px, 2vh, 28px);
-  padding: clamp(8px, 1.8vh, 28px) clamp(16px, 4vw, 56px);
+  gap: clamp(10px, 2vh, 24px);
+  padding: clamp(8px, 1.6vh, 24px) clamp(12px, 3vw, 28px);
   background: transparent;
-  overflow: visible;
-  /* Effet type Cmd− */
-  transform: scale(0.84);
-  transform-origin: center center;
-}
-
-.intro-overlay.is-closing .invitation-card.cover-card.intro-card {
-  transform: scale(0.84);
+  overflow: hidden;
+  transform: none;
 }
 
 .intro-lang-switch,
@@ -332,18 +351,6 @@ body.is-hebrew .intro-overlay .countdown-value {
 .intro-countdown-wrapper,
 .intro-monogram {
   flex-shrink: 0;
-}
-
-@media (max-height: 780px) {
-  .invitation-card.cover-card.intro-card {
-    transform: scale(0.76);
-    gap: clamp(8px, 1.5vh, 16px);
-    padding-block: clamp(6px, 1.2vh, 16px);
-  }
-
-  .intro-overlay.is-closing .invitation-card.cover-card.intro-card {
-    transform: scale(0.76);
-  }
 }
 
 .intro-lang-switch {
@@ -1348,15 +1355,10 @@ body.is-hebrew .he-subtitle-split__line + .he-subtitle-split__line {
     width: 100%;
     max-width: 100%;
     min-height: 0 !important;
-    max-height: calc(100dvh - 16px);
+    max-height: 100%;
     gap: clamp(8px, 1.4vh, 16px);
     padding: clamp(6px, 1.2vh, 14px) max(12px, 4vw);
-    transform: scale(0.72);
-  }
-
-  .intro-overlay.is-closing .invitation-card.cover-card.intro-card,
-  .intro-overlay.is-closing .cover-card.intro-card {
-    transform: scale(0.72);
+    transform: none;
   }
 
   .intro-monogram {
