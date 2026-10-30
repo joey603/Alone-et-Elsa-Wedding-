@@ -440,11 +440,17 @@ body.is-hebrew .intro-overlay .countdown-value {
   width: 22px;
   height: 22px;
   display: none;
+  flex-shrink: 0;
 }
 
 .music-toggle:not(.is-muted) .music-toggle-icon--on,
 .music-toggle.is-muted .music-toggle-icon--off {
   display: block;
+}
+
+.music-toggle.is-muted {
+  color: rgba(105, 48, 98, 0.72);
+  opacity: 0.92;
 }
 
 .intro-monogram {
