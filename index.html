@@ -666,7 +666,6 @@
             feedback.textContent = pageTranslations[currentLang].rsvp.submitting;
             await submitRsvp();
             feedback.textContent = pageTranslations[currentLang].rsvp.feedback;
-            rsvpForm.reset();
             window.requestAnimationFrame(clampInvitationScroll);
           } catch (error) {
             feedback.textContent = pageTranslations[currentLang].rsvp.error;
