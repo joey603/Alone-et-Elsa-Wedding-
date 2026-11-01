@@ -381,12 +381,13 @@ body.is-hebrew .intro-overlay .countdown-value {
   border: 1px solid rgba(105, 48, 98, 0.34);
   background: rgba(255, 255, 255, 0.62);
   color: rgba(105, 48, 98, 0.92);
-  min-width: 72px;
-  padding: 10px 18px;
+  min-width: 0;
+  padding: 10px 20px;
   border-radius: 999px;
   font: inherit;
-  font-size: 1.12rem;
-  letter-spacing: 0.18em;
+  font-size: 1.02rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
   cursor: pointer;
   transition:
     transform 0.22s ease,
@@ -394,6 +395,12 @@ body.is-hebrew .intro-overlay .countdown-value {
     background 0.22s ease,
     color 0.22s ease,
     border-color 0.22s ease;
+}
+
+.lang-button[data-lang="he"] {
+  font-family: "Frank Ruhl Libre", "Assistant", serif;
+  letter-spacing: 0.02em;
+  font-size: 1.08rem;
 }
 
 .lang-button:hover {
@@ -1457,9 +1464,9 @@ body.is-hebrew .he-subtitle-split__line + .he-subtitle-split__line {
   }
 
   .lang-button {
-    min-width: 66px;
-    padding: 9px 16px;
-    font-size: 1.02rem;
+    min-width: 0;
+    padding: 9px 14px;
+    font-size: 0.95rem;
   }
 
   .intro-monogram {
