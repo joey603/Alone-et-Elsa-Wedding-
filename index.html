@@ -258,7 +258,7 @@
               type="number"
               name="guests"
               id="input-guests"
-              min="1"
+              min="0"
               max="20"
               placeholder="Votre nombre"
               required
@@ -760,6 +760,25 @@
         button.addEventListener("click", () => {
           updateIntroLanguage(button.dataset.lang);
         });
+      });
+
+      function syncGuestsWithAttendance() {
+        const attendance = rsvpForm.elements.houppa.value;
+        if (attendance === "non") {
+          inputGuests.value = "0";
+          inputGuests.min = "0";
+          return;
+        }
+        if (attendance === "oui") {
+          inputGuests.min = "1";
+          if (inputGuests.value === "0") {
+            inputGuests.value = "";
+          }
+        }
+      }
+
+      rsvpForm.querySelectorAll('input[name="houppa"]').forEach((input) => {
+        input.addEventListener("change", syncGuestsWithAttendance);
       });
 
       rsvpForm.addEventListener("submit", (event) => {
